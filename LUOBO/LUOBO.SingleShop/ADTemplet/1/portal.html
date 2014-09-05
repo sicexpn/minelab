@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Note:跳转页-->
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>标准模板</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+        <script>var reTime;</script>
+        <!--WifiTempS name="跳转时间(毫秒) <br>备注:1秒=1000毫秒" type="parameter" key="reTime" -->
+        <script>reTime = "2000";</script>
+        <!--WifiTempE-->
+<script type="text/javascript" language="Javascript">
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        else {
+            r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            else {
+                return null;
+            }
+        }
+    }
+
+    var AcctSessionId = GetQueryString("sessionid");
+
+    function resizeimg() {
+        var objList = document.getElementById("box").getElementsByTagName("img");
+        var obj = objList[0];
+        var maxH = window.innerHeight - 220;
+        var maxW = window.innerWidth - 200;
+        var imgW = obj.width; 
+        var imgH=obj.height;
+        var ratioA=imgW/maxW;
+        var ratioB=imgH/maxH;                
+        if(ratioA>ratioB)
+        {
+            obj.width=maxW;
+            obj.height=maxW*(imgH/imgW);
+        }
+        else
+        {
+            obj.height=maxH;
+            obj.width=maxH*(imgW/imgH);
+        }
+        marginH = (window.innerHeight - obj.height - 120) /2;
+        obj.style.marginTop = marginH+"px";
+        if (AcctSessionId != null) {
+            var timer = setTimeout("redirect()", reTime);
+        }
+    }
+
+    function redirect() {
+        window.location.href = 'home.html' + window.location.search;
+    }
+</script>
+
+		<style type="text/css">  
+html,body {  
+width:100%;  
+height:100%;  
+margin:0px;  
+padding:0px;  
+overflow:hidden;  
+}  
+#box{
+    width:100%;height:100%;
+	padding-bottom:60px;
+    display:table;
+    text-align:center;
+    border:0px solid #d3d3d3;background:#fff;
+}
+#box img{
+    border:0px solid #ccc;
+}
+        </style>
+	</head>
+	<body onload="resizeimg()">
+		<div id="div_redir" style="z-index: 2;">
+			<center>
+				<div id="box" style="margin: 0px auto 0px auto;">
+                <!--WifiTempS name="logo" type="pic" link="true" -->
+					<a href="http://www.next-wifi.com"><img src="img/logo2.jpg"/></a>
+                <!--WifiTempE-->
+                
+                    <h3 style="color:#CC481A"><!--WifiTempS name="logo文字" type="text" -->萝卜<!--WifiTempE--></h3>
+               
+                    <p style="color:Gray">免费 <img src="img/ld (34).gif" width="16" height="16"  alt=""/> WIFI</p>
+                     </div>
+
+			</center>
+		</div>
+	</body>
+
+</html>

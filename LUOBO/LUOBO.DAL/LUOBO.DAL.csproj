@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{852EA431-C02E-4F84-B990-208C903CD16D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LUOBO.DAL</RootNamespace>
+    <AssemblyName>LUOBO.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.9.2.235, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUOBO\Public\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.9.2.235, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUOBO\Public\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.3.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUOBO\Public\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL_Tripartite.cs" />
+    <Compile Include="DAL_AD_AUDIT_HISTORY.cs" />
+    <Compile Include="DAL_AD_FREEHOST.cs" />
+    <Compile Include="DAL_AD_AUDIT.cs" />
+    <Compile Include="DAL_AD_INFO.cs" />
+    <Compile Include="DAL_AD_PUB_CASE.cs" />
+    <Compile Include="DAL_APCONFIGTEMPLATE.cs" />
+    <Compile Include="DAL_BlackList.cs" />
+    <Compile Include="DAL_RadCheck_Log.cs" />
+    <Compile Include="DAL_SYS_INSTALLPERSON.cs" />
+    <Compile Include="DAL_NAS.cs" />
+    <Compile Include="DAL_OpenSSID_Statistical.cs" />
+    <Compile Include="DAL_RadAcct.cs" />
+    <Compile Include="DAL_RadCheck.cs" />
+    <Compile Include="DAL_RadGroupReply.cs" />
+    <Compile Include="DAL_RadReply.cs" />
+    <Compile Include="DAL_SHARE.cs" />
+    <Compile Include="DAL_SHARE_INFO.cs" />
+    <Compile Include="DAL_SYS_ADTEMPLET.cs" />
+    <Compile Include="DAL_SYS_ALARMRULE.cs" />
+    <Compile Include="DAL_SYS_APCONTACT.cs" />
+    <Compile Include="DAL_SYS_APDEVICE.cs" />
+    <Compile Include="DAL_SYS_APPCOMPETENC.cs" />
+    <Compile Include="DAL_SYS_APPLICATION.cs" />
+    <Compile Include="DAL_SYS_APORGLOG.cs" />
+    <Compile Include="DAL_SYS_APSTATE.cs" />
+    <Compile Include="DAL_SYS_BANLIST.cs" />
+    <Compile Include="DAL_SYS_DEVICESTATE.cs" />
+    <Compile Include="DAL_SYS_DICT.cs" />
+    <Compile Include="DAL_SYS_DICT_ZONE.cs" />
+    <Compile Include="DAL_SYS_FIRMWARE.cs" />
+    <Compile Include="DAL_SYS_LOG_ALERT.cs" />
+    <Compile Include="DAL_SYS_LOG_ALERTWHITELIST.cs" />
+    <Compile Include="DAL_SYS_LOG_ALERTKEYWORD.cs" />
+    <Compile Include="DAL_SYS_LOG_APNEAR.cs" />
+    <Compile Include="DAL_SYS_MENU.cs" />
+    <Compile Include="DAL_SYS_MENUUSER.cs" />
+    <Compile Include="DAL_SYS_ORGANIZATION.cs" />
+    <Compile Include="DAL_SYS_ORGAPP.cs" />
+    <Compile Include="DAL_SYS_ORG_PROPERTY.cs" />
+    <Compile Include="DAL_SYS_PROBEDEVICE.cs" />
+    <Compile Include="DAL_SYS_PROBEORG.cs" />
+    <Compile Include="DAL_SYS_SETTINGVER.cs" />
+    <Compile Include="DAL_SYS_SIM.cs" />
+    <Compile Include="DAL_SYS_SSID.cs" />
+    <Compile Include="DAL_SYS_SSID_AUDIT.cs" />
+    <Compile Include="DAL_SYS_SSID_DEFAULT.cs" />
+    <Compile Include="DAL_SYS_SSID_TEMPLATE.cs" />
+    <Compile Include="DAL_SYS_USER.cs" />
+    <Compile Include="DAL_SYS_USERAPPCOMPETENCE.cs" />
+    <Compile Include="DAL_UserGroup.cs" />
+    <Compile Include="DAL_WEIXIN_AUTH.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAL_SYS_APORG.cs" />
+    <Compile Include="DAL_SYS_ALARMSCOPE.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LUOBO.Access\LUOBO.Access.csproj">
+      <Project>{D70D7DEF-2D3F-475F-AE23-8EC4B3A29CEB}</Project>
+      <Name>LUOBO.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Entity\LUOBO.Entity.csproj">
+      <Project>{365BD453-16F7-49FB-B855-250FD9B15E46}</Project>
+      <Name>LUOBO.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Helper\LUOBO.Helper.csproj">
+      <Project>{2E4EA470-F11B-4548-85ED-C60790637184}</Project>
+      <Name>LUOBO.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Model\LUOBO.Model.csproj">
+      <Project>{44CFDB80-9898-48B6-9C46-440EB62AE739}</Project>
+      <Name>LUOBO.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<!--Note:广告页-->
+<html xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <title>萝卜wifi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+        <link rel="stylesheet" href="css/ad-theme.min.css" />
+        <link rel="stylesheet" href="css/ad-li.css" />
+        <link rel="stylesheet" href="css/camera.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.min.css" />
+        <script src="js/jquery.min.js"></script>
+        <script src="http://ad.next-wifi.com/UITemplet/js/statistical.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3688013678" type="text/javascript" charset="utf-8"></script>
+        <script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" data-appid="101053539" data-redirecturi="http://192.168.11.1" charset="utf-8"></script>
+		<script src="/UITemplet/js/ad_login.js"></script>
+        <script src="http://ad.next-wifi.com/UITemplet/js/WeiXLogin.js"></script>
+
+        <!--WifiTempS name="机构" type="sysparam" key="SysWifi_ORG_ID" dict="orgid" -->
+        <script>            SysWifi_ORG_ID = "10035";</script>
+        <!--WifiTempE-->
+
+        <!--WifiTempS name="主题配色" type="parameter" key="theme" dict="白:a||黑:b||红:c||绿:d||蓝:e" -->
+        <script>theme = "c";</script>
+        <!--WifiTempE-->
+        
+        <!--WifiTempS name="关注微博UID" type="parameter" key="wb_uids" -->
+        <script>            wb_uids = "请填写要关注的微博udi号，多个请用逗号隔开";</script>
+        <!--WifiTempE-->
+
+
+
+    </head>
+    <body>
+<div id="page-theme" data-role="page">
+  <div data-role="header" data-position="fixed">
+    <h1>欢迎访问</h1>
+    <a href="#" id="div_LoginTime" data-shadow="false"  data-iconshadow="false" >--:--</a>
+    <a id="login-btn" data-shadow="false"  data-iconshadow="false" href="#login-area" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-state-disabled">我要上网</a>
+  </div>
+  
+	<div role="main" class="ui-content">
+    <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+          <div data-link="page1.html">
+          <img src="adtpic/logo.png" width="0" height="0"  alt=""/>
+        <div class="camera_caption fadeFromBottom"> <em>国内领先的商用WiFi服务提供商</em> </div>
+      </div>
+          <div data-link="page1.html">
+          <img src="adtpic/logo.png" width="0" height="0"  alt=""/>
+        <div class="camera_caption fadeFromBottom"> <em>扩展虚拟营业面积,增加客流提升收入</em> </div>
+      </div>
+          <div data-link="page1.html">
+          <img src="adtpic/logo.png" width="0" height="0"  alt=""/>
+        <div class="camera_caption fadeFromBottom"> <em>减少宣传开支,降低人力成本</em> </div>
+      </div>
+        </div>
+    <!-- #camera_wrap_1 -->
+    
+    <div class="ui-grid-b">
+          <div class="ui-block-a">
+        <div><a href="page4.html" data-ajax="false" class="image-link"><img src="adtpic/logo.png" /></a></div>
+      </div>
+          <div class="ui-block-b">
+        <div><a href="page5.html" data-ajax="false" class="image-link"><img src="adtpic/logo.png" /></a></div>
+      </div>
+          <div class="ui-block-c">
+        <div><a href="page6.html" data-ajax="false" class="image-link"><img src="adtpic/logo.png" /></a></div>
+      </div>
+        </div>
+    <!-- /grid-c --> 
+    
+  </div><!-- /content -->
+
+
+    <div data-role="popup" id="login-area"  class="ui-corner-all">
+		<div style="padding:10px;">
+			<ul id="login-list" data-icon="false" data-role="listview" data-inset="true" data-theme="a" >
+				<li data-role="list-divider" data-icon="false">请选择登录方式</li>
+				<li><a class='btn btn-sm btn-success active'  href='javascript:login(0);'>试用</a></li>
+			</ul>
+		</div>
+    </div>
+</div>
+<form id="form1" name="form1" action="" method="get" enctype="multipart/form-data">
+    <input type="hidden" id="username" name="username" value="" />
+    <input type="hidden" id="password" name="password" value="" />
+</form>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script> 
+<script src="js/camera.js"></script> 
+        
+        <script>
+            $("#page-theme").attr("data-theme", theme);
+
+            jQuery(function () {
+                jQuery('#camera_wrap_1').camera({
+                    height: "400px",
+                    thumbnails: false,
+                    navigation: false,
+                    playPause: false,
+                    time: 3000
+                });
+            });
+            function PostReportStatistical1(data, page) {
+                document.location.href = page;
+            }
+	</script>
+        <script>
+
+            $(document).ready(function () {
+                var res = GetQueryString("res");
+                if (res != "already") {
+                    getparmeter();
+                }
+                else {
+                    alert("登陆成功!");
+                }
+            });
+        </script>
+
+</body>
+</html>

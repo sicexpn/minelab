@@ -1,0 +1,150 @@
+
+.hor-minimalist-top td input[type="text"]
+{
+    width:250px;
+}
+.hor-minimalist-top td input[type="password"]
+{
+    width:250px;
+}
+.hor-minimalist-top
+{
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 20px;
+    width: 382px;
+}
+
+.hor-minimalist-top td
+{
+    font-size: 14px;
+    /*font-weight: normal;*/
+    color: #039;
+    padding: 10px 8px;
+}
+.hor-minimalist-body
+{
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 20px;
+}
+.hor-minimalist-body td
+{
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    color: #669;
+    padding: 6px 8px;
+}
+.hor-minimalist-a
+{
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 20px;
+}
+.hor-minimalist-a th
+{
+    font-size: 14px;
+    /*font-weight: normal;*/
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+}
+.hor-minimalist-a td
+{
+    color: #669;
+    padding: 9px 8px 0;
+}
+.hor-minimalist-a tbody tr:hover td
+{
+    color: #009;
+}
+.hor-minimalist-b
+{
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 20px;
+}
+.hor-minimalist-b th
+{
+    font-size: 14px;
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+}
+.hor-minimalist-b td
+{
+    border-bottom: 1px solid #ccc;
+    color: #669;
+    padding: 6px 8px;
+}
+.hor-minimalist-b tbody tr:hover td
+{
+    color: #009;
+}
+.hor-minimalist-page
+{
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    margin: 20px;
+}
+.hor-minimalist-page a
+{
+    font-weight: normal;
+    color: #039;
+    border: 1px solid #6678b1;
+    padding: 5px 8px;
+}
+
+.div-body
+{
+    width:auto;
+}
+
+.div-body-top
+{
+    width:100%;
+}
+
+.div-body-bottom
+{
+    width:100%;
+}
+
+.txt-normal
+{
+    width:100px;
+}
+
+.txt-apreg
+{
+    width:140px;
+}
+
+
+.btn-normal
+{
+    width:70px;
+    height:25px;
+}
+
+.left
+{
+    float: left;
+}
+
+/* jquery-ui's tabs patch */
+.ui-tabs { border: 0px none #FFF; background: none;}
+.ui-tabs-nav { border: 0px none #FFF; background: none;}
+.ui-tabs .ui-tabs-panel {background-color: #FFF; border: 1px solid #F93;}
+.ui-tabs .ui-tabs-nav li { margin-bottom: 0px;}
+

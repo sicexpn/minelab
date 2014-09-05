@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<!--Note:应用下载页-->
+<html style="height:100%">
+  <head>
+    <title>app下载模板</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ad.next-wifi.com/UITemplet/js/statistical.js"></script>
+    
+	<script type="text/javascript">
+
+		function GetQueryString(name) {
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		    var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+		    if (r != null) {
+		        return unescape(r[2]);
+		    }
+		    else {
+		        r = window.location.search.substr(1).match(reg);
+		        if (r != null) {
+		            return unescape(r[2]);
+		        }
+		        else {
+		            return null;
+		        }
+		    }
+		}
+
+		var uamip = GetQueryString("uamip");
+		var uamport = GetQueryString("uamport");
+		var mac = GetQueryString("mac");
+		var AcctSessionId = GetQueryString("sessionid");
+		var SSID = GetQueryString("nasid");
+		var CalledStationId = GetQueryString("called");
+		var CallingStationId = GetQueryString("mac");
+		var login_state = GetQueryString("res");
+
+
+		var free_usr = "freeuser";
+		var free_pass = "F2FFD12F81567F535ACE07A8730CE92C";
+		var login_url = "http://" + uamip + ":" + uamport + "/www/login.chi";
+
+
+		var isMobile = {
+		    Android: function () {
+		        return navigator.userAgent.match(/Android/i) ? true : false;
+		    },
+		    BlackBerry: function () {
+		        return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+		    },
+		    iOS: function () {
+		        return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+		    },
+		    Windows: function () {
+		        return navigator.userAgent.match(/IEMobile/i) ? true : false;
+		    },
+		    any: function () {
+		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+		    }
+		};
+
+
+		//if (SSID != null) { document.title = SSID; }
+		var ios_path;
+		var other_path;
+
+		function setLoginMsg() {
+		    //if (login_state == "success") {
+		        //alert("登陆成功");
+		        if (isMobile.iOS()) {
+		            ReportStatisticalFromClick(ios_path, 'ios版app下载');
+                        
+
+		        //} else if (isMobile.Android()) {
+		        //    window.location.href = 'http://mobile.psbc.com/dl/ebank?method=manual&os=android';
+		        //} else if (isMobile.Windows()) {
+		        //    window.location.href = 'http://mobile.psbc.com/dl/ebank?method=manual&os=winMobile';
+		        } else {
+		            //$("#AppLoginMsg").html('对不起，暂时没有对应您手机系统的app');
+		            ReportStatisticalFromClick(other_path, '非ios版app下载');
+                }
+		    // }
+		    // else if (login_state == "notyet") {
+            //        login(0);
+            // }
+		}
+
+		//登陆
+		function login(type) {
+		    switch (type) {
+		        case 0: //free
+		            //alert(login_url)
+		            //window.open(login_url + "?username=" + free_usr + "&password=" + free_pass);
+		            $("#username").val(free_usr);
+		            $("#password").val(free_pass);
+		            $("#form1").submit();
+		            break;
+		        case 1: //qq
+		            break;
+		        case 2: //weibo
+		            break;
+		    }
+		}
+
+	</script>
+    <script>
+        $(document).ready(function () {
+            //$("#form1").attr("action", login_url);
+            setLoginMsg();
+        });
+  </script>
+
+
+<style type="text/css"> 
+      html,body,iframe{
+height:100%
+}
+  </style>
+  </head>
+  <body>
+  <!--WifiTempS name="ios版app下载地址" type="parameter" key="ios_path" -->
+  <script>ios_path = "http://itunes.apple.com/cn/app/id392899425?mt=8";</script>
+  <!--WifiTempE-->
+  <!--WifiTempS name="非ios版app下载地址" type="parameter" key="other_path" -->
+  <script>other_path = "http://m.cmbchina.com/Common/SoftwareDetail.aspx?pageid=android";</script>
+  <!--WifiTempE-->
+ <form id="form1" name="form1" action="" method="get" enctype="multipart/form-data">
+                    <input type="hidden" id="username" name="username" value="" />
+                    <input type="hidden" id="password" name="password" value="" />
+ </form>
+    <div style="height:100%; margin-top:120px;margin-bottom:120px; text-align:center;color:Gray;font-size:22px">
+    <p id="AppLoginMsg">
+        系统正在识别您的手机操作系统,请稍后...
+        </p>
+        </div>
+
+  </body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!--Note:广告页-->
+<!DOCTYPE html>
+<html style="height:100%">
+  <head>
+    <title>广州邮政储蓄银行免费WiFi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="http://ad.next-wifi.com/UITemplet/js/statistical.js"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3688013678" type="text/javascript" charset="utf-8"></script>
+    <script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" data-appid="101053539" data-redirecturi="http://192.168.11.1" charset="utf-8"></script>
+		<script type="text/javascript">
+
+		    function GetQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		        var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+		        if (r != null) {
+		            return unescape(r[2]);
+		        }
+		        else {
+		            r = window.location.search.substr(1).match(reg);
+		            if (r != null) {
+		                return unescape(r[2]);
+		            }
+		            else {
+		                return null;
+		            }
+		        }
+		    }
+
+		    var uamip = GetQueryString("uamip");
+		    var uamport = GetQueryString("uamport");
+		    var mac = GetQueryString("mac");
+		    var AcctSessionId = GetQueryString("sessionid");
+		    var SSID = GetQueryString("nasid");
+		    var CalledStationId = GetQueryString("called");
+		    var CallingStationId = GetQueryString("mac");
+            var login_state = GetQueryString("res");
+
+
+		    var free_usr = "freeuser";
+		    var free_pass = "F2FFD12F81567F535ACE07A8730CE92C";
+		    var login_url = "http://" + uamip + ":" + uamport + "/www/login.chi";
+
+
+		    //if (SSID != null) { document.title = SSID; }
+
+		    function setLoginMsg() {
+		        if (login_state == "success") {
+		            //alert("登陆成功");
+		            $("#div_LoginMsg").empty();
+		            $("#div_LoginMsg").append("登录成功");
+                }
+		    }
+
+		    //登陆
+		    function login(type) {
+		        switch (type) {
+		            case 0: //free
+		                //alert(login_url)
+		                //window.open(login_url + "?username=" + free_usr + "&password=" + free_pass);
+		                $("#username").val(free_usr);
+		                $("#password").val(free_pass);
+		                $("#form1").submit();
+
+		                break;
+		            case 1: //qq
+		                break;
+		            case 2: //weibo
+		                break;
+		        }
+		    }
+
+		    //登陆
+		    function login_weibo(name_wb) {
+		        $.ajax({
+		            type: 'post', //可选get
+		            //url: 'http://service.next-wifi.com/LUOBOService/UserLogin/GetPassword', //这里是接收数据的程序
+		            url: '/UI/AjaxComm.aspx',
+		            data: 'type=GetPassword&param={"CalledStationId":"' + CalledStationId + '","UserName":"' + name_wb + '","UserType":2}',
+		            dataType: 'json', //服务器返回的数据类型 可选XML ,Json jsonp script html text等
+		            success: function (obj) {
+		                //alert(obj);
+		                //window.open(login_url + "?username=" + name_wb + "&password=" + obj);
+		                $("#username").val(name_wb);
+		                $("#password").val(obj);
+		                $("#form1").submit();
+		                //做其他操作
+		            },
+		            error: function (XMLHttpRequest, textStatus, errorThrown) {  //#3这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+		                //alert(XMLHttpRequest.status);
+		                //alert(XMLHttpRequest.readyState);
+		                //alert(textStatus); // paser error;
+		            }
+		        });
+		    }
+		</script>
+
+
+<script type="text/javascript">
+    QC.Login({ btnId: "qq_login_btn", size: "A_M" }, function (reqData, opts) {//登录成功        //根据返回数据，更换按钮显示状态方法
+        QC.Login.getMe(function (openId, accessToken) {
+            ect.settext(2, openId);
+            ect.settext(20, "subst");
+            ect.settext(0);
+            alert("与QQ号对应的唯一标识" + openId);
+            login_qq(openId);
+        });
+        liuyanForm.hidden_img.value = headImg.src = reqData.figureurl_2;
+        liuyanForm.hidden_nicName.value = nicDiv.innerHTML = reqData.nickname;
+        qq_login_btn.innerHTML = '<span><a href="javascript:QC.Login.signOut();"><span style="color:#000000;text-decoration: none;">安全退出</span></a></span>';
+    }, function (opts) { alert("QQ已经退出！"); }); 
+</script>
+<script type="text/javascript">
+    WB2.anyWhere(function (W) {
+        W.widget.connectButton({
+            id: "wb_connect_btn",
+            type: '3,2',
+            callback: {
+                login: function (o) {	//登录后的回调函数
+                    alert(o.screen_name+" 欢迎登陆!")
+                    login_weibo(o.screen_name);
+                },
+                logout: function () {	//退出后的回调函数
+                    alert('logout');
+                }
+            }
+        });
+    });
+	</script>
+        <script>
+            $(document).ready(function () {
+                var iframe_src = $("#iframe_src").text();
+                $("#iframe_ad").attr("src", iframe_src);
+                $("#form1").attr("action", login_url);
+                setLoginMsg();
+            });
+  </script>
+
+<style type="text/css"> 
+      html,body,iframe{
+height:100%
+}
+  </style>
+  </head>
+  <body style="height:100%">
+  <div id="div_share" style="position:absolute; z-index:100000000;margin-top:-19px;"></div>
+ <form id="form1" name="form1" action="" method="get" enctype="multipart/form-data">
+                    <input type="hidden" id="username" name="username" value="" />
+                    <input type="hidden" id="password" name="password" value="" />
+ </form>
+  <div id="iframe_src" name="iframe_src" style="display:none"><!--WifiTempS name="嵌入链接" type="txt" link="null" -->
+http://www.ptweixin.com/api/2cc7a49590/web/?wxref=mp.weixin.qq.com
+<!--WifiTempE--></div>
+    <div style="height:100%; margin-top:20px;margin-bottom:30px" class="container">
+      <div  class="row" style="height:100%;">
+        <div class="col-md-12" style="height:100%;">
+        <div class="panel panel-default" style="height:100%">
+
+                  <iframe src="" id="iframe_ad" name ="iframe_ad" width="100%" height="100%" style="overflow: auto;">
+                  </iframe>
+                    </div>
+          <p class="text-center"></p>
+
+        </div>
+        </div>
+        </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+          <div id="div_LoginMsg" class="text-center">
+          <span id="qq_login_btn"></span>
+          <a class="btn btn-sm btn-success active"  href="javascript:login(0);">
+          <!--WifiTempS name="按钮文字1" type="txt" link="null" width="100%" height="auto" -->
+          试用20分钟
+          <!--WifiTempE-->
+          </a>
+          <!--<a class="btn btn-primary btn-lg"  href="https://api.weibo.com/oauth2/authorize?client_id=774500621&response_type=code&redirect_uri=http://www.lixiguang.com">
+          qq登录 免费上网
+          </a>-->
+
+          
+          <span id="wb_connect_btn"></span>
+          </div>
+       <h5><p class="text-center">Powered by Luobo WiFi - <a href="tel:18901010101" class="btn btn-primary btn-xs" role="button">联系电话</a></p></h5>
+
+</nav>
+<script src="/UITemplet/js/share.js"></script>
+  </body>
+</html>

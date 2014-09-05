@@ -1,0 +1,13 @@
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\LUOBO.Entity.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\LUOBO.Entity.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\LUOBO.Helper.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\LUOBO.Helper.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\obj\Debug\LUOBO.Entity.csprojResolveAssemblyReference.cache
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\obj\Debug\LUOBO.Entity.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\obj\Debug\LUOBO.Entity.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\MongoDB.Bson.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\Microsoft.ApplicationServer.Caching.Client.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\Microsoft.ApplicationServer.Caching.Core.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\Microsoft.WindowsFabric.Data.Common.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Entity\bin\Debug\Microsoft.WindowsFabric.Common.dll

@@ -1,0 +1,8 @@
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\bin\Debug\LUOBO.Model.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\bin\Debug\LUOBO.Model.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\bin\Debug\LUOBO.Entity.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\bin\Debug\LUOBO.Entity.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\obj\Debug\LUOBO.Model.csprojResolveAssemblyReference.cache
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\obj\Debug\LUOBO.Model.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\obj\Debug\LUOBO.Model.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.Model\bin\Debug\MongoDB.Bson.dll

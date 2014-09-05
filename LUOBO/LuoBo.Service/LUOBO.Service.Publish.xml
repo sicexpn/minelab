@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\LuoBoService" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/LUOBO.DAL.pdb" publishTime="08/11/2014 11:28:09" />
+    <file relUrl="bin/LUOBO.Service.dll" publishTime="08/11/2014 11:28:12" />
+    <file relUrl="bin/LUOBO.Helper.pdb" publishTime="08/11/2014 11:16:44" />
+    <file relUrl="bin/LUOBO.Model.pdb" publishTime="08/11/2014 11:16:47" />
+    <file relUrl="bin/LUOBO.Access.pdb" publishTime="08/11/2014 11:16:46" />
+    <file relUrl="bin/LUOBO.Entity.pdb" publishTime="08/11/2014 11:16:45" />
+    <file relUrl="bin/NEsper.dll" publishTime="07/09/2014 17:52:44" />
+    <file relUrl="bin/LUOBO.Model.dll" publishTime="08/11/2014 11:16:48" />
+    <file relUrl="bin/LUOBO.Helper.dll" publishTime="08/11/2014 11:16:44" />
+    <file relUrl="bin/LUOBO.BLL.dll" publishTime="08/11/2014 11:28:10" />
+    <file relUrl="bin/LUOBO.Service.pdb" publishTime="08/11/2014 11:28:12" />
+    <file relUrl="Global.asax" publishTime="05/08/2014 18:48:51" />
+    <file relUrl="bin/LUOBO.Entity.dll" publishTime="08/11/2014 11:16:45" />
+    <file relUrl="bin/LUOBO.BLL.pdb" publishTime="08/11/2014 11:28:10" />
+    <file relUrl="Web.config" publishTime="08/09/2014 18:21:25" />
+    <file relUrl="bin/ICSharpCode.SharpZipLib.dll" publishTime="05/07/2014 15:27:49" />
+    <file relUrl="bin/LUOBO.DAL.dll" publishTime="08/11/2014 11:28:09" />
+    <file relUrl="bin/LUOBO.Access.dll" publishTime="08/11/2014 11:16:47" />
+    <file relUrl="DeviceAshx.ashx" publishTime="05/13/2014 11:20:56" />
+  </publishProfile>
+</publishData>

@@ -1,0 +1,4 @@
+D:\实验室\LuoBo\source\LUOBO\WeiXinRest\bin\WeiXinRest.dll
+D:\实验室\LuoBo\source\LUOBO\WeiXinRest\bin\WeiXinRest.pdb
+D:\实验室\LuoBo\source\LUOBO\WeiXinRest\obj\Debug\WeiXinRest.dll
+D:\实验室\LuoBo\source\LUOBO\WeiXinRest\obj\Debug\WeiXinRest.pdb

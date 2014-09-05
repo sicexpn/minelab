@@ -1,0 +1,11 @@
+﻿.dropdown-caret-down:before
+        {
+            font-family: FontAwesome;
+            content: "\f0d7";
+        }
+.dropdownlist{min-width:175px;padding:6px 5px;border:solid 1px #ddd;background:#fff;position:absolute;left:0;top:30px;}
+.dropdownlist .tit_filter{width:348px;border:1px solid #f9f9f9;background:#ddd;font-size:14px;color:#000;height:24px;line-height:24px;padding:2px 5px;}
+.dropdownlist li{list-style-type:none;float:left;width:150px;padding:0 0 0 5px;font-size:14px;line-height:32px;height:32px;}
+.dropdownlist li:hover{background:#eee;}
+.dropdownlist li label{cursor:pointer;font-weight:normal;}
+.dropdownlist li .text{width:356px;height:22px;padding:4px 7px;padding:6px 7px 2px\9;font:14px;border:1px solid #cdcdcd;border-color:#9a9a9a #cdcdcd #cdcdcd #9a9a9a;vertical-align:top;outline:none;margin:0 5px 0 0;}

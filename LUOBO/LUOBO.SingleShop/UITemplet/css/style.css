@@ -1,0 +1,261 @@
+@charset "utf-8";
+body
+{
+    background-color: #e8e8e8; 
+	color: #666;
+	margin: 0px auto;
+	font: 12px sans-serif;
+	-moz-user-focus: ignore;
+	-moz-user-input: disabled;
+	-moz-user-select: none;
+}
+
+.panel{
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.weibo_tuli_l{
+width:420px; height:100%; float:left;
+
+
+
+}
+.weibo_tuli_r{
+width:240px; height:100%; float:right;
+
+
+
+}
+
+	
+	.panle_ssid
+	{
+
+	min-height:182px;
+	OVERFLOW-Y:auto;
+
+	}
+	
+	.panle_right
+	{
+	min-height:682px;
+	OVERFLOW-Y:auto;
+	}
+	
+	.panel-heading .pagination{
+		margin-top:-8px;
+	}
+
+	.news_frame{
+		padding:0px;
+		
+		}
+		
+
+			
+			.color-dark{
+	background-color: #069;				
+				}
+				
+
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
+}
+
+
+
+.list-group .active {
+font-family: FontAwesome,sans-serif;
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+padding-left:15px;
+width:100%;
+}
+
+.list-group .active:before {
+content: "\f00c\20";}
+
+.list-group-item{padding-left:30px;}
+
+
+.ui-accordion-header
+{
+background-color:#428bca;
+font-weight: normal;
+color: #fff;
+display: block;
+cursor: pointer;
+position: relative;
+margin-top: 2px;
+padding: .5em .5em .5em .7em;
+min-height: 0;
+font-size:10px;
+    font-family: FontAwesome,sans-serif;
+
+    
+    }
+    .ui-state-hover
+    {
+        
+        background-color:#195A92;
+
+}
+
+.arrow-e:before
+{
+    
+content: "\f101\20";}
+
+.arrow-s:before
+{
+    
+content: "\f103\20";}
+
+
+    
+    /*µ¯³ö¿ò*/
+    
+    .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+border-bottom-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+border-bottom-left-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+border-top-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+border-top-left-radius: 4px;
+}
+.ui-widget-content {
+border: 1px solid #aaaaaa;
+background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+color: #222222;
+}
+.ui-widget {
+font-family: Verdana,Arial,sans-serif;
+font-size: 1.1em;
+}
+.ui-resizable {
+position: relative;
+}
+.ui-dialog {
+overflow: hidden;
+position: absolute;
+top: 0;
+left: 0;
+padding: .2em;
+outline: 0;
+}
+.ui-front {
+z-index: 100;
+}
+
+.ui-dialog .ui-dialog-content {
+position: relative;
+border: 0;
+padding: .5em 1em;
+background: none;
+overflow: auto;
+}
+.ui-widget-content {
+border: 1px solid #aaaaaa;
+background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+color: #222222;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+cursor: move;
+}
+.ui-dialog .ui-dialog-titlebar {
+padding: .4em 1em;
+position: relative;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+border-bottom-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+border-bottom-left-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+border-top-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+border-top-left-radius: 4px;
+}
+.ui-widget-header {
+border: 1px solid #aaaaaa;
+background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+color: #222222;
+font-weight: bold;
+}
+.ui-helper-clearfix {
+min-height: 0;
+support: IE7;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+position: absolute;
+right: .3em;
+top: 50%;
+width: 20px;
+margin: -10px 0 0 0;
+padding: 1px;
+height: 20px;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+font-family: Verdana,Arial,sans-serif;
+font-size: 1em;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	text-align: center;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin-top: .5em;
+	padding: .3em 1em .5em .4em;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+	margin: .5em .4em .5em 0;
+	cursor: pointer;
+}
+
+      .pic-list
+       {
+           text-align:center;
+               float: left;
+margin: 15px;
+width: 100px;
+height: 120px;
+      border: 1px solid #d6d6d6;
+           }     
+           
+                  .pic-list img
+       {
+margin: 5px;
+width: 90px;
+height: 90px;
+           }   
+           

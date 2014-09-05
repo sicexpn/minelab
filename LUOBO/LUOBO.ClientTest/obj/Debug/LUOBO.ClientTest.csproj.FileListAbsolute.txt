@@ -1,0 +1,4 @@
+D:\实验室\LuoBo\source\LUOBO\LUOBO.ClientTest\bin\LUOBO.ClientTest.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.ClientTest\bin\LUOBO.ClientTest.pdb
+D:\实验室\LuoBo\source\LUOBO\LUOBO.ClientTest\obj\Debug\LUOBO.ClientTest.dll
+D:\实验室\LuoBo\source\LUOBO\LUOBO.ClientTest\obj\Debug\LUOBO.ClientTest.pdb

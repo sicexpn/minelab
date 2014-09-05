@@ -1,0 +1,264 @@
+﻿
+<!DOCTYPE html>
+<!--Note:广告页-->
+<html style="height:100%">
+  <head>
+    <title>广州邮储</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/MetroJs.min.css" rel="stylesheet" type="text/css" />
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="/UITemplet/js/statistical.js"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3688013678" type="text/javascript" charset="utf-8"></script>
+    <script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" data-appid="101053539" data-redirecturi="http://192.168.11.1" charset="utf-8"></script>
+    <script src="js/MetroJs.min.js"></script>
+    
+		<script type="text/javascript">
+
+		    function GetQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		        var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+		        if (r != null) {
+		            return unescape(r[2]);
+		        }
+		        else {
+		            r = window.location.search.substr(1).match(reg);
+		            if (r != null) {
+		                return unescape(r[2]);
+		            }
+		            else {
+		                return null;
+		            }
+		        }
+		    }
+
+		    var uamip = GetQueryString("uamip");
+		    var uamport = GetQueryString("uamport");
+		    var mac = GetQueryString("mac");
+		    var AcctSessionId = GetQueryString("sessionid");
+		    var SSID = GetQueryString("nasid");
+		    var CalledStationId = GetQueryString("called");
+		    var CallingStationId = GetQueryString("mac");
+		    var login_state = GetQueryString("res");
+
+
+		    var free_usr = "freeuser";
+		    var free_pass = "F2FFD12F81567F535ACE07A8730CE92C";
+		    var login_url = "http://" + uamip + ":" + uamport + "/www/login.chi";
+
+
+		    //if (SSID != null) { document.title = SSID; }
+
+		    function setLoginMsg() {
+		        if (login_state == "success") {
+		            //alert("登陆成功");
+		            $("#div_LoginMsg").empty();
+		            $("#div_LoginMsg").append("登录成功");
+		        }
+		    }
+
+		    //登陆
+		    function login(type) {
+		        switch (type) {
+		            case 0: //free
+		                //alert(login_url)
+		                //window.open(login_url + "?username=" + free_usr + "&password=" + free_pass);
+		                $("#username").val(free_usr);
+		                $("#password").val(free_pass);
+		                $("#form1").submit();
+
+		                break;
+		            case 1: //qq
+		                break;
+		            case 2: //weibo
+		                break;
+		        }
+		    }
+
+		    //登陆
+		    function login_weibo(name_wb) {
+		        $.ajax({
+		            type: 'post', //可选get
+		            //url: 'http://service.next-wifi.com/LUOBOService/UserLogin/GetPassword', //这里是接收数据的程序
+		            url: '/UI/AjaxComm.aspx',
+		            data: 'type=GetPassword&param={"CalledStationId":"' + CalledStationId + '","UserName":"' + name_wb + '","UserType":2}',
+		            dataType: 'json', //服务器返回的数据类型 可选XML ,Json jsonp script html text等
+		            success: function (obj) {
+		                //alert(obj);
+		                //window.open(login_url + "?username=" + name_wb + "&password=" + obj);
+		                $("#username").val(name_wb);
+		                $("#password").val(obj);
+		                $("#form1").submit();
+		                //做其他操作
+		            },
+		            error: function (XMLHttpRequest, textStatus, errorThrown) {  //#3这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+		                //alert(XMLHttpRequest.status);
+		                //alert(XMLHttpRequest.readyState);
+		                //alert(textStatus); // paser error;
+		            }
+		        });
+		    }
+		</script>
+
+
+<script type="text/javascript">
+    QC.Login({ btnId: "qq_login_btn", size: "A_M" }, function (reqData, opts) {//登录成功        //根据返回数据，更换按钮显示状态方法
+        QC.Login.getMe(function (openId, accessToken) {
+            ect.settext(2, openId);
+            ect.settext(20, "subst");
+            ect.settext(0);
+            alert("与QQ号对应的唯一标识" + openId);
+            login_qq(openId);
+        });
+        liuyanForm.hidden_img.value = headImg.src = reqData.figureurl_2;
+        liuyanForm.hidden_nicName.value = nicDiv.innerHTML = reqData.nickname;
+        qq_login_btn.innerHTML = '<span><a href="javascript:QC.Login.signOut();"><span style="color:#000000;text-decoration: none;">安全退出</span></a></span>';
+    }, function (opts) { alert("QQ已经退出！"); }); 
+</script>
+<script type="text/javascript">
+    WB2.anyWhere(function (W) {
+        W.widget.connectButton({
+            id: "wb_connect_btn",
+            type: '3,2',
+            callback: {
+                login: function (o) {	//登录后的回调函数
+                    alert(o.screen_name + " 欢迎登陆!")
+                    login_weibo(o.screen_name);
+                },
+                logout: function () {	//退出后的回调函数
+                    alert('logout');
+                }
+            }
+        });
+    });
+	</script>
+        <script>
+            $(document).ready(function () {
+                var iframe_src = $("#iframe_src").text();
+                $("#iframe_ad").attr("src", iframe_src);
+                $("#form1").attr("action", login_url);
+                setLoginMsg();
+                $(".live-tile, .flip-list").not(".exclude").liveTile();
+            });
+  </script>
+
+<style type="text/css"> 
+      html,body,iframe{
+height:100%
+}
+  </style>
+  </head>
+  <body style="height:100%">
+ <form id="form1" name="form1" action="" method="get" enctype="multipart/form-data">
+                    <input type="hidden" id="username" name="username" value="" />
+                    <input type="hidden" id="password" name="password" value="" />
+ </form>
+    <div style="height:100%; margin-top:20px;margin-bottom:70px" class="container">
+      <div  class="row" style="height:100%;">
+        <div class="col-md-12" style="height:100%;"><div id="div_share" style="position:absolute; z-index:100000000"></div>
+
+<div id="boxes">
+			<div id="wrapper_box" class="wrapper_fs">
+                <div id="scroller_box" class="scroller">
+    				<div class="tiles blue tile-group two-wide" style="margin: auto;" id="tile_group">
+    					<div onClick="javascript:ReportStatisticalFromClick('http://www.ptweixin.com/api/2cc7a49590/web/column/22888/','广州邮储--最新优惠');" class=" cyan live-tile one-wide one-tall" data-speed="500" data-delay="5942" data-link="#" data-mode="flip" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="最新优惠" data-brief="最新优惠" data-img="adtpic/1.jpg" data-wclocal="1">
+    							<span class="tile-title accent">
+    								最新优惠    							</span>
+    							<div>
+    								<img class="full" src="adtpic/1.jpg" />
+    							</div>
+    							<div>
+    								<p>
+    									最新优惠    								</p>
+    							</div>
+    						</div>
+                            <div onClick="javascript:ReportStatisticalFromClick('http://www.ptweixin.com/api/2cc7a49590/web/column/19054/','广州邮储--悦享美食');" class=" yellow live-tile one-wide one-tall" data-speed="500" data-delay="942" data-link="#" data-mode="flip" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="悦享美食" data-brief="悦享美食" data-img="adtpic/2.jpg" data-wclocal="1">
+    							<span class="tile-title accent">
+    								悦享美食    							</span>
+    							<div>
+    								<img class="full" src="adtpic/2.jpg" />
+    							</div>
+    							<div>
+    								<p>
+    									悦享美食    								</p>
+    							</div>
+    						</div>
+                            <div onClick="javascript:ReportStatisticalFromClick('http://www.ptweixin.com/api/2cc7a49590/web/column/16197/','广州邮储--电子银行');" class=" emerald live-tile one-wide one-tall" data-speed="500" data-delay="4942" data-link="#" data-mode="carousel" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="电子银行" data-brief="电子银行" data-img="adtpic/3.jpg" data-wclocal="1">
+    							<span class="tile-title accent">
+    								电子银行    							</span>
+    							<div>
+    								<img class="full" src="adtpic/3.jpg" />
+    							</div>
+    							<div>
+    								<p>
+    									电子银行    								</p>
+    							</div>
+    						</div>
+                            <div onClick="javascript:ReportStatisticalFromClick('http://www.ptweixin.com/api/2cc7a49590/reserve/detail/1375/','广州邮储--信用卡申请');" class=" mango live-tile one-wide one-tall" data-speed="500" data-delay="2942" data-link="#" data-mode="flip" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="信用卡申请" data-brief="信用卡申请" data-img="adtpic/4.jpg" data-wclocal="1">
+    							<span class="tile-title accent">
+    								信用卡申请    							</span>
+    							<div>
+    								<img class="full" src="adtpic/4.jpg" />
+    							</div>
+    							<div>
+    								<p>
+    									信用卡申请    								</p>
+    							</div>
+    						</div>
+                            <div onClick="javascript:ReportStatisticalFromClick('http://ad.next-wifi.com/ADUserFile/10049/Pub/62_20140531114108/portal.html','广州邮储--手机银行下载');" class=" steel live-tile one-wide one-tall" data-speed="500" data-delay="1942" data-link="#" data-mode="flip" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="邮储手机银行下载" data-brief="邮储手机银行下载" data-img="adtpic/5.jpg" data-wclocal="1">
+    							<span class="tile-title accent">邮储手机银行下载</span>
+    							<div>
+    								<img class="full" src="adtpic/5.jpg" />
+    							</div>
+    							<div>
+    								<p>邮储手机银行下载</p>
+    							</div>
+    						</div>
+                            <div onClick="javascript:ReportStatisticalFromClick('http://wap.psbc.com/','广州邮储--银行官网');" class=" orange live-tile one-wide one-tall" data-speed="500" data-delay="3942" data-link="#" data-mode="carousel" data-direction="horizontal" box-id="0" data-adid="5784" data-cid="87" data-contact_phone="" data-contact_email="" 
+    						data-rating="0" data-rated="0" data-showcmt="0" data-cmted="0" data-title="邮储银行官网" data-brief="邮储银行官网" data-img="adtpic/8.jpg" data-wclocal="1">
+    							<span class="tile-title accent">
+    								邮储银行官网    							</span>
+    							<div>
+    								<img class="full" src="adtpic/8.jpg" />
+    							</div>
+    							<div>
+    								<p>
+    									邮储银行官网    								</p>
+    							</div>
+    						</div>
+                        </div>
+    				</div>
+                </div>
+			</div>
+		</div>
+        </div>
+        </div>
+        </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+          <div id="div_LoginMsg" class="text-center">
+          <span id="qq_login_btn"></span>
+          <a class="btn btn-sm btn-success active"  href="javascript:login(0);">
+          <!--WifiTempS name="按钮文字1" type="txt" link="null" width="100%" height="auto" -->试用30分钟<!--WifiTempE-->
+          </a>
+          <!--<a class="btn btn-primary btn-lg"  href="https://api.weibo.com/oauth2/authorize?client_id=774500621&response_type=code&redirect_uri=http://www.lixiguang.com">
+          qq登录 免费上网
+          </a>-->
+
+          
+          <span id="wb_connect_btn"></span>
+          </div>
+
+</nav>
+<script src="/UITemplet/js/share.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AjaxComm.aspx.cs" Inherits="LUOBO.SingleShop.UI.AjaxComm" %>

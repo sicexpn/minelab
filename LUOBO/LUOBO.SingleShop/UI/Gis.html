@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript" src="../UITemplet/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../UITemplet/js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=10de0613056269b007c32743d586d9d7"></script>
+<script type="text/javascript" src="../UITemplet/js/TextIconOverlay.js"></script>
+<script type="text/javascript" src="../UITemplet/js/MarkerClusterer.js"></script>
+<script type="text/javascript" src="../UITemplet/js/artDialog/artDialog.source.js?skin=blue"></script>
+<script type="text/javascript" src="../UITemplet/js/artDialog/iframeTools.js"></script>
+<script type="text/javascript" src="../UITemplet/js/sidebar/js/prototype.js"></script>
+<script type="text/javascript" src="../UITemplet/js/sidebar/js/effects.js"></script>
+<script type="text/javascript" src="../UITemplet/js/sidebar/js/side-bar.js"></script>
+<style type="text/css">  
+	html{height:100%}  
+	body{height:100%;margin:0px;padding:0px;font-size:9px}
+
+</style>
+<style type="text/css">
+	#sideBarContentsInner a{outline: none;}
+	#sideBarContentsInner a:active{outline: none;}
+	#sideBar{text-align: left;}
+	#sideBar h2{
+		color: #FFFFFF;
+		font-size: 110%;
+		font-family: arial;
+		margin: 10px 10px 10px 10px;
+		font-weight: bold !important;
+	}
+	#sideBar h2 span{
+		font-size: 125%;
+		font-weight: normal !important;
+	}
+	#sideBar ul
+	{
+	    width:100%;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+	}
+	#sideBar li{
+		margin: 0px 10px 3px 10px;
+		padding: 2px;
+		list-style-type: none;
+		display: block;
+		background-color: #00479d;
+		width: 180px;
+		color: #FFFFFF;
+	}
+	#sideBar li a{
+		width: 100%;
+	}
+	#sideBar li a:link, #sideBar li a:visited{
+		color: #FFFFFF;
+		font-family: verdana;
+		font-size: 100%;
+		text-decoration: none;
+		display: block;
+		margin: 0px 0px 0px 0px;
+		padding: 0px;
+		width: 100%;
+	}
+	#sideBar li a:hover{
+		color: #FFFFFF;
+		text-decoration: underline;
+	}
+	#sideBar{
+		position: absolute;
+		width: auto;
+		height: auto;
+		top: 170px;
+		right: 0px;
+		background-image: url(../UITemplet/js/sidebar/images/background.gif);
+		background-position: top left;
+		background-repeat: repeat-y;
+	}
+	#sideBarTab	{
+		float: left;
+		height: 137px;
+		width: 28px;
+	}
+	#sideBarTab img	{
+		border: 0px solid #FFFFFF;
+	}
+	#sideBarContents{
+		float: left;
+		overflow: hidden !important;
+		width: 170px;
+		height: auto;
+	}
+	#sideBarContentsInner{
+		width: 250px;
+	}
+</style>
+<style>
+/** 去掉Baidu地图版权Logo
+.anchorBL{  
+       display:none;  
+}
+*/
+</style>
+<script type="text/javascript">
+    function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+//        if (name == "token")
+//            return "6ba8459dfa414239b459730a1410241c";
+    }
+
+    String.prototype.format = function (args) {
+        var result = this;
+        if (arguments.length > 0) {
+            if (arguments.length == 1 && typeof (args) == "object") {
+                for (var key in args) {
+                    if (args[key] != undefined) {
+                        var reg = new RegExp("({" + key + "})", "g");
+                        result = result.replace(reg, args[key]);
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < arguments.length; i++) {
+                    if (arguments[i] != undefined) {
+                        var reg = new RegExp("({)" + i + "(})", "g");
+                        result = result.replace(reg, arguments[i]);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+</script>
+
+<script type="text/javascript">
+    var map;
+    //var glb_point;
+    /* Icon图标 */
+    var personIcon;
+    var wifiOnIcon;
+    var wifiOffIcon;
+    // 图例对话框
+    var symbol_dialog;
+    // 点位标记对象集合
+    var markers = [];
+    // 聚合对象
+    var markerClusterer = null;
+    var APList = [];
+    // 循环获取AP信息ID
+    var intervalid;
+    // 获取AP信息的间隔时间 单位s
+    var refreshInterval = 5;
+    var displayMode = "apMode";
+    var token = GetQueryString("token"); //读取token
+    var curLat;
+    var curLon;
+    var tipControl = null;
+//    window.onbeforeunload = function () {
+//        alert("aa");
+//        return "请点击取消留在此页";
+//    }
+    $(document).ready(function () {
+        var OpenID = "oPBSTt-1tqgKrYCzJBEBHUtzT6s4";
+        var OID = 10035;
+        var S = "779054";
+        $.ajax({
+            type: 'post', //可选get
+            url: '/UI/AjaxComm.aspx', //这里是接收数据的PHP程序
+            data: 'type=Weixin/Auth&param={openid:"' + OpenID + '",oid:' + OID + ',s:"' + S + '"}',
+            dataType: 'json', //服务器返回的数据类型 可选XML ,Json jsonp script html text等
+            success: function (obj) {
+                if (obj.ResultCode == 1)
+                    Option.CallBack();
+                else
+                    alert(obj.ResultMsg);
+            }
+        });
+
+
+
+
+        initialize();
+        initSymbol();
+        //		$('#wifi_helper').draggable({
+        //			cursorAt: { top: 60},
+        //			stop: function() {
+        //				//addMarker(glb_point,wifiOnIcon);
+        //			}
+        //		});
+    });
+    function showSymbol() {
+        symbol_dialog.show();
+    }
+
+    function initialize() {
+        $.ajax({
+            type: 'post',
+            url: 'AjaxComm.aspx',
+            data: 'type=GetAPListForGIS&token=' + token,
+            dataType: 'json',
+            error: function (msg) {
+                alert("服务器错误");
+                initMap();
+            },
+            success: function (obj) {
+                if (obj.ResultCode == 0) {
+                    APList = obj.ResultOBJ;
+                    initMap();
+
+                } else {
+                    alert(obj.ResultMsg);
+                    if (obj.ResultCode == -100) {
+                        //window.location.href = "login.aspx";
+                    }
+                }
+            }
+        });
+    }
+
+    function initMap() {
+        map = new BMap.Map('map', { enableMapClick: false });
+        var points = [];
+        var point;
+        for (var i = 0; i < APList.length; i++) {
+            point = new BMap.Point(APList[i].LAT, APList[i].LON);
+            points.push(point);
+        }
+        if (points.length == 0) {
+            if (getLocation()) {
+                map.centerAndZoom(new BMap.Point(curLat, curLon), 15);
+            }
+        }
+        else {
+            var portView = map.getViewport(points);
+            map.centerAndZoom(portView.center, portView.zoom);
+            map.enableScrollWheelZoom();
+        }
+        
+        map.enableScrollWheelZoom();
+        map.addControl(new BMap.NavigationControl());
+        map.addControl(new BMap.ScaleControl({ offset: new BMap.Size(10, 45) }));
+        map.addControl(new BMap.OverviewMapControl());
+        map.addControl(new BMap.MapTypeControl());
+        tipControl = new TipControl();
+        map.addControl(tipControl);
+
+        personIcon = new BMap.Icon("../UITemplet/img/person.gif", new BMap.Size(24, 24), { offset: new BMap.Size(12, 24) });
+        wifiOnIcon = new BMap.Icon("../UITemplet/img/wifi_on.gif", new BMap.Size(32, 32), { offset: new BMap.Size(12, 32) });
+        wifiOffIcon = new BMap.Icon("../UITemplet/img/wifi_off.gif", new BMap.Size(32, 32), { offset: new BMap.Size(12, 32) });
+        addEvent();
+        updateWiFiView(APList, displayMode);
+        refreshTime = refreshInterval;
+        intervalid = window.setInterval("updateRereshTime()", 1000);
+
+    }
+    //0 wifi开  1 wifi关  2 在线人数
+    function createMarker(_point, _type, _text) {
+        var marker;
+        switch (_type) {
+            case 0:
+                marker = new BMap.Marker(_point, { icon: wifiOnIcon });
+                break;
+            case 1:
+                marker = new BMap.Marker(_point, { icon: wifiOffIcon });
+                break;
+            case 2:
+                marker = new BMapLib.TextIconOverlay(_point, _text);
+                break;
+        }
+        return marker;
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var coords = position.coords;
+                curLat = coords.latitude;
+                curLon = coords.longitude;
+                return true;
+            },
+            function (error) {
+                switch (error.code) {
+                    case 1:
+                        alert("位置服务被拒绝。");
+                        break;
+                    case 2:
+                        alert("暂时获取不到位置信息。");
+                        break;
+                    case 3:
+                        alert("获取信息超时。");
+                        break;
+                    default:
+                        alert("未知错误。");
+                        break;
+                }
+                return false;
+            });
+        } else {
+            //alert("你的浏览器不支持HTML5来获取地理位置信息。");
+        } 
+    }
+
+    function getAPList() {
+        $.ajax({
+            type: 'post',
+            url: 'AjaxComm.aspx',
+            data: 'type=GetAPListForGIS&token=' + token,
+            dataType: 'json',
+            error: function (msg) {
+                alert("服务器错误");
+            },
+            success: function (obj) {
+                if (obj.ResultCode == 0) {
+                    APList = obj.ResultOBJ;
+                    updateWiFiView(APList, displayMode);
+                } else {
+                    alert(obj.ResultMsg);
+                    if (obj.ResultCode == -100) {
+                        window.location.href = "login.aspx";
+                    }
+                }
+            }
+        });
+    }
+
+
+    function updateWiFiView(_datas, _displayMode) {
+        tipControl.setContent(APList);
+        markers.length = 0;
+        map.clearOverlays();
+        var point;
+        var mkr;
+        if (_displayMode == "apMode") {
+            if (markerClusterer != null) {
+                markerClusterer.clearMarkers();
+                markerClusterer.clearEvent();
+                markerClusterer = null;
+            }
+            for (var i = 0; i < _datas.length; i++) {
+                point = new BMap.Point(_datas[i].LAT, _datas[i].LON);
+                if (_datas[i].ISLIVE) {
+                    mkr = createMarker(point, 0);
+                }
+                else {
+                    mkr = createMarker(point, 1);
+                }
+                map.addOverlay(mkr);
+                mkr.tag = _datas[i];
+                mkr.setAnimation(BMAP_ANIMATION_DROP);
+                mkr.addEventListener("click", function () {
+                    art.dialog.open('statistical.aspx', { title: '统计数据',width:'80%'});
+                });
+                
+                mkr.addEventListener("mouseout", function () {
+                    this.closeInfoWindow();
+                });
+                mkr.addEventListener("mouseover", function () {
+//                    $(this).tooltip({
+//                        show: {
+//                            effect: "drop",
+//                            delay: 250
+//                        },
+//                        hide: {
+//                            effect: "explode",
+//                            delay: 250
+//                        },
+//                        position: {
+//                            my: "center top",
+//                            at: "center bottom"
+//                        }
+//                    });
+                    var opts = {
+                        width: 100,
+                        height: 50,
+                        enableMessage: false,
+                        title: this.tag.ALIAS
+                    }
+                    this.mInfoWindow = this.mInfoWindow || new BMap.InfoWindow("设备的一些介绍xxxxx", opts);
+                    this.openInfoWindow(this.mInfoWindow, map.getCenter());  
+                });
+
+            }
+        }
+        else if (_displayMode == "personMode") {
+            for (var i = 0; i < _datas.length; i++) {
+                point = new BMap.Point(_datas[i].LAT, _datas[i].LON);
+                markers.push(createMarker(point, 2, _datas[i].OLPERSON));
+            }
+            markerClusterer = markerClusterer || new BMapLib.MarkerClusterer(map);
+            markerClusterer.clearMarkers();
+            markerClusterer.addMarkers(markers);
+            markerClusterer.setMaxZoom(15);
+        }
+    }
+
+    function initSymbol() {
+        var innerhtml1 = '<div style="float:left"><img alt="" src="../UITemplet/img/wifi_on.gif" style="height:20px"/><span>&nbsp;&nbsp;&nbsp;在线AP</span></div><div style="float:left;margin-top:4px"><img alt="" src="../UITemplet/img/wifi_off.gif" style="height:20px" /><span>&nbsp;&nbsp;&nbsp;离线AP</span></div>';
+        symbol_dialog = art.dialog({
+            padding: '5px 5px',
+            title: '图例',
+            content: innerhtml1,
+            opacity: 0.2,
+            width: 150,
+            resize: false,
+            left: '80%',
+            top: '15%',
+            close: function () {
+                this.hide();
+                return false;
+            }
+        });
+    }
+
+    function addEvent() {
+        map.addEventListener("mousemove", function (type) {
+            $('#txt_test').val(type.point.lat + " " + type.point.lng);
+            glb_point = type.point;
+        });
+    }
+
+    function openRefresh() {
+        if ($('#auto_refresh_btn').html() == "自动刷新：开") {
+            $('#auto_refresh_btn').html("自动刷新：关");
+            clearInterval(intervalid);
+            $('#refreshTime').html("");
+        }
+        else {
+            $('#auto_refresh_btn').html("自动刷新：开");
+            refreshTime = refreshInterval;
+            intervalid = window.setInterval("updateRereshTime()", 1000); 
+        }
+    }
+
+    function updateRereshTime() {
+        $('#refreshTime').html(" (" + refreshTime + "s)");
+        if (refreshTime <= 0) {
+            getAPList();
+            refreshTime = refreshInterval;
+        }
+        else {
+            refreshTime -= 1;
+        }
+    }
+
+    function displayChangeClick() {
+        if ($('#displayMode_btn').html() == "显示模式：设备") {
+            $('#displayMode_btn').html("显示模式：人数");
+            displayMode = "personMode";
+        }
+        else {
+            $('#displayMode_btn').html("显示模式：设备");
+            displayMode = "apMode";
+        }
+        updateWiFiView(APList, displayMode);
+    }
+
+
+    //-----------自定义控件------------------
+    function TipControl() {
+        this.contentDiv = document.createElement("div");
+        this.content = "设备总数量：{0}<br /> 设备在线数量：{1}<br />总连接人数：{2}";
+        this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;
+        this.defaultOffset = new BMap.Size(200, 100);
+    }
+    TipControl.prototype = new BMap.Control();
+    TipControl.prototype.initialize = function (map) {
+        this.contentDiv.style.cursor = "pointer";
+        this.contentDiv.style.border = "1px solid gray";
+        this.contentDiv.style.backgroundColor = "white";
+        map.getContainer().appendChild(this.contentDiv);
+        return this.contentDiv;
+    }
+
+    TipControl.prototype.setContent = function (_APList) {
+
+        var olAP = 0;
+        var olPerson = 0;
+        var offlAP = 0;
+        for (var i = 0; i < _APList.length; i++) {
+            olPerson += _APList[i].OLPERSON;
+            if (_APList[i].ISLIVE)
+                olAP++;
+        }
+        this.contentDiv.innerHTML = this.content.format(_APList.length, olAP, olPerson);
+    }
+</script>
+</head>
+<body>
+	<div id="map" style="width:100%;height:100%"></div>
+	<!-- 右侧工具栏Start -->
+	<div id="sideBar">
+        <a href="#" id="sideBarTab"><img src="../UITemplet/js/sidebar/images/slide-button.gif" alt="sideBar" title="sideBar" /></a>
+        <div id="sideBarContents" style="display: none;">
+            <div id="sideBarContentsInner">
+                <h2>side<span>bar</span></h2>
+                <ul>
+                    <li><a href="#" onclick="javascript:showSymbol();">图例</a></li>
+                </ul>
+                <ul>
+                    <li><a id="auto_refresh_btn" href="#" onclick="javascript:openRefresh();">自动刷新：开</a><span id="refreshTime"></span></li>
+                </ul>
+                <ul>
+                    <li><a id="displayMode_btn" href="#" onclick="javascript:displayChangeClick();">显示模式：设备</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- 右侧工具栏End -->
+	
+	<!--<input id="txt_test" type="text" value="测试" />
+	<select style="display:none" id="displayMode">
+		<option value="apMode">设备模式</option>
+		<option value="personMode">人数模式</option>
+	</select>-->
+</body>
+</html>
+

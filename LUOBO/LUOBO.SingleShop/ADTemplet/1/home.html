@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<!--Note:广告页-->
+<html xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <title>萝卜wifi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+        <!--link rel="stylesheet" href="css/bootstrap.min.css"/-->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css"/>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile-1.4.2.min.js" type="text/javascript"></script>
+        <script src="/UITemplet/js/statistical.js"></script>
+        <script src="/UITemplet/js/WeiXLogin.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3688013678" type="text/javascript" charset="utf-8"></script>
+        <script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" data-appid="101053539" data-redirecturi="http://192.168.11.1" charset="utf-8"></script>
+		<script src="/UITemplet/js/ad_login.js"></script>
+        <script type="text/javascript">
+		    var uamip = GetQueryString("uamip");
+			var uamport = GetQueryString("uamport");
+			var mac = GetQueryString("mac");
+			var AcctSessionId = GetQueryString("sessionid");
+			var SSID = GetQueryString("nasid");
+			var CalledStationId = GetQueryString("called");
+			var CallingStationId = GetQueryString("mac");
+			var free_usr = "freeuser";
+			var free_pass = "F2FFD12F81567F535ACE07A8730CE92C";
+			var login_url ="http://" +uamip+":"+uamport+"/www/login.chi";
+
+
+		</script>
+        <!--WifiTempS name="机构" type="sysparam" key="SysWifi_ORG_ID" dict="orgid" -->
+        <script>            SysWifi_ORG_ID = "10035";</script>
+        <!--WifiTempE-->
+
+        <!--WifiTempS name="微博认证" type="parameter" key="isopensinawb" dict="开:1||关:0" -->
+        <script>isopensinawb = "1";</script>
+        <!--WifiTempE-->
+        <!--WifiTempS name="QQ认证" type="parameter" key="isopenqq" dict="开:1||关:0" -->
+        <script>isopenqq = "1";</script>
+        <!--WifiTempE-->
+        <!--WifiTempS name="一键登陆" type="parameter" key="isopenyj" dict="开:1||关:0" -->
+        <script>isopenyj = "1";</script>
+        <!--WifiTempE-->
+        
+        <!--WifiTempS name="关注微博UID" type="parameter" key="wb_uids" -->
+        <script>wb_uids = "请填写要关注的微博udi号，多个请用逗号隔开";</script>
+        <!--WifiTempE-->
+        <script>
+
+
+            var PropertyOBJ = null;
+
+            function getparmeter() {
+                $.ajax({
+                    type: 'post',
+                    url: '/UI/AjaxComm.aspx',
+                    data: 'type=GetLoginProperty&token=' + SysWifi_ORG_ID,
+                    dataType: 'json',
+                    error: function (msg) {
+                        //alert("服务器错误");
+                    },
+                    success: function (obj) {
+                        if (obj.ResultCode == 0) {
+                            PropertyOBJ = obj.ResultOBJ;
+                            var tt = "";
+                            if (getPropertyValue("微信认证", "是否启用")) {
+                                var wxuid = getPropertyValue("微信认证", "Radius用户名");
+                                var wxpass = getPropertyValue("微信认证", "Radius密码");
+                                WeiXLogin({ CallBack: function () { login(0, wxuid, wxpass); } });
+                            }
+                            for (var i = 0; i < obj.ResultOBJ.length; i++) {
+                                tt += "PTYPE=" + obj.ResultOBJ[i].PTYPE + ",PNAME=" + obj.ResultOBJ[i].PNAME + ",PVALUE=" + obj.ResultOBJ[i].PVALUE + "\n";
+                            }
+                        } else {
+                            alert(obj.ResultMsg);
+                        }
+                    }
+                });
+            }
+
+            function getPropertyValue(ptype, pname) {
+                var revalue = "";
+                if (PropertyOBJ != null && PropertyOBJ.length > 0) {
+                    for (var i = 0; i < PropertyOBJ.length; i++) {
+                        if (PropertyOBJ[i].PTYPE == ptype && PropertyOBJ[i].PNAME == pname) {
+                            revalue = PropertyOBJ[i].PVALUE;
+                        }
+                    }
+                }
+                return revalue;
+            }
+
+            $(document).ready(function () {
+                login_list(isopensinawb, isopenqq, isopenyj);
+                $("#form1").attr("action", login_url);
+                getparmeter();
+            });
+        </script>
+    </head>
+    <body>
+<div data-role="page">
+  <div data-role="header">
+    <h1>欢迎访问我的主页</h1>
+    <a href="#login-area" data-rel="popup" data-transition="pop" data-position-to="window">我要上网</a>
+  </div>
+
+              <div data-role="popup" id="login-area" data-theme="a" data-overlay-theme="a" class="ui-corner-all">
+		<div style="padding:10px;">
+			<ul id="login-list" data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
+				<li data-role="list-divider">请选择登录方式</li>
+				<li><a class='btn btn-sm btn-success active'  href='javascript:login(0);'>试用20分钟</a></li>
+		<li><a><span id='wb_connect_btn'></span></a></li>
+					</ul>
+		</div>
+    </div>
+</div>
+<form id="form1" name="form1" action="" method="get" enctype="multipart/form-data">
+    <input type="hidden" id="username" name="username" value="" />
+    <input type="hidden" id="password" name="password" value="" />
+</form>
+</body>
+</html>

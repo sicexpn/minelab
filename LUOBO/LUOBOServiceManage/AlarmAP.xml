@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <APList>
+    <AP Alarm="广州邮储">
+      <ID>40</ID>
+      <OID>10049</OID>
+      <Alias>梅花园邮局营业部</Alias>
+      <MAC>E0-05-C5-B1-E5-89</MAC>
+      <LAT>113.3202160000</LAT>
+      <LON>23.1796980000</LON>
+    </AP>
+    <AP Alarm="中文在线">
+      <ID>798</ID>
+      <OID>10064</OID>
+      <Alias>中文在线</Alias>
+      <MAC>5C-63-BF-FD-FE-4F</MAC>
+      <LAT>113.3202160000</LAT>
+      <LON>23.1796980000</LON>
+    </AP>
+  </APList>
+</Root>

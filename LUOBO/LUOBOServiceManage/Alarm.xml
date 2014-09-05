@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Alarms>
+    <Alarm Type="1" Mode="1">
+      <Name>广州邮储</Name>
+      <Remark>没有访问</Remark>
+      <Time Unit="h">1</Time>
+      <Min>0</Min>
+      <Max>0</Max>
+      <STime>09:00:00</STime>
+      <ETime>17:00:00</ETime>
+    </Alarm>
+    <Alarm Type="1" Mode="1">
+      <Name>中文在线</Name>
+      <Remark>没有访问</Remark>
+      <Time Unit="h">2</Time>
+      <Min>0</Min>
+      <Max>0</Max>
+      <STime>08:00:00</STime>
+      <ETime>18:00:00</ETime>
+    </Alarm>
+  </Alarms>
+</Root>

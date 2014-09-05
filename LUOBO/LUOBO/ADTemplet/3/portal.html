@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			萝卜wifi
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+        		<script type="text/javascript" language="Javascript">
+			var fr_content;
+			var content_data = "";
+			var content_url;
+			function redirect() {
+                if(content_data == null){
+                    // wait for one second for the data ...
+                    setTimeout(redirect, 1000);
+                    return;
+                }
+				document.open();
+				document.write(content_data);
+				document.close();
+			}
+			window.onload = function() {
+                var url = window.location.href;
+                var pos = url.indexOf('?');
+                // get rid of '_redir' and get the content url
+               // content_url = url.substr(0,pos-5) + '_ct.html';
+			    content_url="Page1.html";
+				fr_content = document.getElementById("fr_content");
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && (xmlhttp.status == 0 || xmlhttp.status == 200 )) {
+						content_data = xmlhttp.responseText;
+                        // loaded the content in the unvisible frame first
+						fr_content.contentDocument.write(content_data);
+					}
+				}
+				xmlhttp.open("GET", content_url, true);
+				xmlhttp.send();
+				setTimeout(redirect, 3000);
+			};
+            </script>
+		<style type="text/css">  
+html,body {  
+width:100%;  
+height:100%;  
+margin:0px;  
+padding:0px;  
+overflow:hidden;  
+}  
+#box{
+    width:100%;
+	height:100%;
+    text-align:center;
+    border:0px solid #d3d3d3;background:#fff;
+	display:table;
+	
+}
+
+#box>div{
+	display:table-cell;vertical-align:middle;position:static
+	}
+        </style>
+	</head>
+	<body>
+
+				<div id="box">
+			<div>
+                <!--WifiTempS name="logo图片" type="pic" link="null" width="90px" height="90px" -->
+					<img src="adtpic/luobu_logo.png" width="90px" height="90px"/>
+					<!--WifiTempE-->
+
+                 <h2 style="color:#CC481A"> 
+                 <!--WifiTempS name="logo文字" type="txt" link="null"-->
+                 萝卜					
+                 <!--WifiTempE-->
+                 </h2> 
+                 <p style="color:#666">免费 WIFI 
+                 <img src="adtpic/ld34.gif" width="16" height="16"  alt=""/></p>
+                 <p style=" font-size:12px;color:#666">
+                                  <!--WifiTempS name="公司名称" type="txt" link="null"-->
+                                  万虔云智科技有限公司
+                                                   <!--WifiTempE-->
+                </p>
+                
+                 </div>
+
+			  </div>
+              		<iframe id="fr_content" style="position: absolute;top: -100px;z-index: 1;height: 50px;">
+		</iframe>
+				
+	</body>
+
+</html>

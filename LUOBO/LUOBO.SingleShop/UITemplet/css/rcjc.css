@@ -1,0 +1,318 @@
+@charset "utf-8";
+/* CSS Document */
+table{
+	border-spacing:0px;
+	}
+*{ margin:0; padding:0;}
+td{ height:24px;}
+a{ color:#82318e; text-decoration:none;}
+a:link{ color:#82318e; text-decoration:none;}
+body{
+	color:#424242;
+	width:1120px;
+	margin:0px auto;
+	font: 12px sans-serif;	
+	-moz-user-focus:   ignore;     
+    -moz-user-input:   disabled;     
+    -moz-user-select:   none;
+	}
+.flag {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-color: initial;
+	border-top-color: rgba(0, 0, 0, 0.796875);
+	border-right-color: rgba(0, 0, 0, 0.796875);
+	border-bottom-color: rgba(0, 0, 0, 0.796875);
+	border-left-color: rgba(0, 0, 0, 0.796875);
+	background-color: rgba(0, 0, 0, 0.746094);
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	padding-top: 12px;
+	padding-right: 8px;
+	padding-bottom: 12px;
+	padding-left: 8px;
+	font-size: 12px;
+	box-shadow: rgba(0, 0, 0, 0.578125) 3px 3px 6px 0px;
+	color: rgb(255, 255, 255);
+	width: atuo;
+	heigth: atuo;
+	max-width:300px;
+	float: left;
+	display: none;
+	position: fixed;
+	z-index: 9999;
+}
+.flag a{
+	margin:10px; 
+	color:#FFF; 
+	font-weight:bold; 
+	line-height:25px;
+	}
+.flag_relative {
+	width:150px;
+	height:260px;
+	background-color:#FFF;
+	border:1px solid #2d2d2d;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	font-size: 12px;
+	box-shadow: rgba(0, 0, 0, 0.578125) 3px 3px 6px 0px;
+	color: #000;
+	float: left;
+	display: none;
+	position: fixed;
+	z-index: 9999;
+}
+/* Daily monitoring of news monitoring */
+.rcjc_main{
+	width:100%;
+	height:720px;
+	margin:0px auto;
+}
+.label{
+	width:100%;
+	height:39px;
+	background-image:url(../images/DataM_01.jpg);
+	color:#FFF;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.label_btn1{
+	width:90px;
+	height:25px;
+	margin-left:5px;
+	margin-top:6px;
+	color:#555;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	/*
+	border:1px solid #4a0053;
+	background-image:url(../images/TopA_18.jpg);
+	*/
+	}
+.label_btn2{
+	width:90px;
+	height:25px;
+	margin-left:5px;
+	margin-top:6px;
+	color:#888;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	/*
+	background-color:#eee;
+	border:1px solid #4a0053;
+	background-image:url(../images/TopA_18_B.jpg);
+	*/
+	}
+.news_details{
+	width:1080px;
+	height:680px;
+	margin:auto;
+}
+.news_d_con{
+	width:1080px;
+	height:680px;
+	float:left;
+}
+.news_d_c_tubiao{
+	width:699px;
+	height:680px;
+	background-color:#FFF;
+	border-right:1px dashed #333;
+	float:left;
+}
+.news_d_c_t_qushi{
+	width:610px;
+	height:170px;
+    padding:9px;
+    background-color:#e0e3e8;
+	border-bottom:1px solid #000;
+	border-left:1px solid #000;
+}
+.news_d_c_t_map{
+	width:610px;
+	height:227px;
+    padding:9px;
+    background-color:#e0e3e8;
+	border-bottom:1px solid #000;
+	border-left:1px solid #000;
+}
+.news_d_c_t_keyword{
+	width:610px;
+	height:227px;
+    padding:9px;
+    background-color:#e0e3e8;
+	border-bottom:1px solid #000;
+	border-left:1px solid #000;
+}
+
+.news_d_c_info{
+	width:379px;
+	height:680px;
+	background-color:#FFF;
+	border-right:1px solid #787A7D;
+	float:left;
+}
+.news_d_c_name{
+	width:370px;
+	height:25px;
+	line-height:25px;
+	font-size:12px;
+	font-weight:bold;
+	color:#FFF;
+	background-image:url(../images/TopA_12.jpg);
+}
+.news_d_c_info_list{
+	width:370px;
+	height:600px;
+	background-color:#FFF;
+}
+.news_d_c_info_page{
+	width:370px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	background-color:#FFF;
+}
+#menu{overflow:hidden;width:369px;height:100%;overflow:hidden; padding-left:5px; padding-right:5px;}
+#menu li{list-style-type:none;display:block;width:359px;margin-top:5px; margin-bottom:5px;}
+#menu li a{display:block;text-decoration:none;width:100%;line-height:25px;}
+#menu li label{display:block;font-size:12px;width:359px;margin:0;padding:0;color:#666;}
+#menu li a span{display:none;color:#666;font-size:12px;border-bottom:1px dashed #787A7D;width:359px;margin:0;padding:0}
+#menu li a:hover{background:rgba(0, 0, 0, 0.05);}
+#menu li:hover span, #menu li a:hover span{display:block;cursor:pointer}
+#menu h1{margin:0;color:#1F77B4;font-size:12px;padding:0;}
+#menu li span img{float:left;margin:3px 5px 0 0;border:1px solid #EEE}
+.news_d_nav{
+	width:57px;
+	height:678px;
+	background-image:url(../images/TopA_25.jpg);
+	border: 1px solid #471a4e;
+	border-right:0px;
+	border-bottom:0px;
+	box-shadow: inset 1px 0px 1px 0px #5c2165;
+	box-shadow: 2px 0px 2px #9c47a9;
+	float:left;
+}
+#nav{
+	font:20px Verdana, Geneva, sans-serif;
+	margin-left:11px;
+	font-weight:bold;
+	}
+#nav li{
+	width:39px;
+	height:135px;
+	text-align:center;
+	margin-top:33px;
+	border-bottom:1px solid #35043c;
+	box-shadow:#b45ac0 0px 1px 0px;
+	list-style-image:none;
+	list-style-type:none;
+	}
+#nav li a{
+	color:#FFF;
+	}
+	
+/* Daily monitoring of network monitoring */
+
+.network_cb{
+	width:610px;
+	height:475px;
+    padding:9px;
+    background-color:#e0e3e8;
+	border-left:1px solid #000;
+}
+.network_tubiao{
+	width:689px;
+	height:680px;
+	background-color:#FFF;
+	border-right:1px dashed #333;
+	float:left;
+}
+.network_info{
+	width:389px;
+	height:680px;
+	background-color:#FFF;
+	border-right:1px solid #787A7D;
+	float:left;
+}
+.netword_cb_tubiao_name{
+	width:359px;
+	height:25px;
+	padding-left:15px;
+	padding-right:15px;
+	line-height:25px; 
+	color:#FFF;
+	background-image:url(../images/TopA_12.jpg);
+}
+.netword_cb_tubiao1{
+	width:389px;
+	height:189px;
+    background-color:#FFF;
+	border-bottom:1px solid #787A7D;
+}
+.netword_cb_tubiao1_2{
+	width:370px;
+	height:165px;
+    background-color:#FFF;
+}
+.netword_cb_tubiao2{
+	width:389px;
+	height:490px;
+    background-color:#FFF;
+}
+.netword_cb_tubiao2_1{
+	width:370px;
+	height:259px;
+    background-color:#FFF;
+}
+
+/* Daily monitoring of network monitoring */
+.info_list{
+	width:491px;
+	height:637px;
+	padding:9px;
+	background-color:#FFF;
+	border-right:1px solid #787A7D;
+	border-bottom:1px solid #000;
+	float:left;
+}
+.info_label{
+	width:100%;
+	height:25px;
+	background-color:#82318e;
+}
+.info_label_btn1{
+	border:1px solid #4a0053;
+	width:80px;
+	height:20px;
+	margin-top:3px;
+	color:#FFF;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	background-color:#90369a;
+}
+.info_label_btn2{
+	border:1px solid #4a0053;
+	width:80px;
+	height:20px;
+	margin-top:3px;
+	color:#999;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	background-color:#eee;
+}
+.info_con{
+	width:100%;
+	height:637px;
+}

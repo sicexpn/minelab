@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C647ACBE-CF0D-4239-BD3F-C84044E4CCD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LUOBO.BLL</RootNamespace>
+    <AssemblyName>LUOBO.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUOBO\Public\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NEsper, Version=4.10.1.9961, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LUOBO\Public\NEsper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL_ADManage.cs" />
+    <Compile Include="BLL_AuditManage.cs" />
+    <Compile Include="BLL_CacheManage.cs" />
+    <Compile Include="BLL_DeviceService.cs" />
+    <Compile Include="BLL_EMAIL.cs" />
+    <Compile Include="BLL_Esper.cs" />
+    <Compile Include="BLL_INSTALL.cs" />
+    <Compile Include="BLL_Log.cs" />
+    <Compile Include="BLL_OpenSSID_Statistical.cs" />
+    <Compile Include="BLL_Platform.cs" />
+    <Compile Include="BLL_PROBEAPManage.cs" />
+    <Compile Include="BLL_SHARE.cs" />
+    <Compile Include="BLL_SHARE_INFO.cs" />
+    <Compile Include="BLL_Statistics.cs" />
+    <Compile Include="BLL_SYS_APPCOMPETENC.cs" />
+    <Compile Include="BLL_SYS_DICT.cs" />
+    <Compile Include="BLL_SYS_MENU.cs" />
+    <Compile Include="BLL_SYS_ORGANIZATION.cs" />
+    <Compile Include="BLL_SYS_ORGAPP.cs" />
+    <Compile Include="BLL_SYS_PROBEORG.cs" />
+    <Compile Include="BLL_SYS_SSID.cs" />
+    <Compile Include="BLL_SYS_USER.cs" />
+    <Compile Include="BLL_SYS_APPLICATION.cs" />
+    <Compile Include="BLL_SYS_USERAPPCOMPETENCE.cs" />
+    <Compile Include="BLL_APManage.cs" />
+    <Compile Include="BLL_Radius.cs" />
+    <Compile Include="BLL_Tripartite.cs" />
+    <Compile Include="BLL_WarnManage.cs" />
+    <Compile Include="BLL_WEIXIN.cs" />
+    <Compile Include="BLL_ZipQueue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LUOBO.DAL\LUOBO.DAL.csproj">
+      <Project>{852EA431-C02E-4F84-B990-208C903CD16D}</Project>
+      <Name>LUOBO.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Entity\LUOBO.Entity.csproj">
+      <Project>{365BD453-16F7-49FB-B855-250FD9B15E46}</Project>
+      <Name>LUOBO.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Helper\LUOBO.Helper.csproj">
+      <Project>{2E4EA470-F11B-4548-85ED-C60790637184}</Project>
+      <Name>LUOBO.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LUOBO.Model\LUOBO.Model.csproj">
+      <Project>{44CFDB80-9898-48B6-9C46-440EB62AE739}</Project>
+      <Name>LUOBO.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

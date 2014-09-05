@@ -1,0 +1,10 @@
+.image-link {
+overflow: hidden;
+position: relative;
+}
+
+.image-link img {
+width: 100%;
+display: block;
+margin-bottom: 5px;
+}

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <AP>
+    <HBInterval unit="second">300</HBInterval>
+    <DataInterval unit="second">120</DataInterval>
+  </AP>
+
+  <SSID Type="default">
+    <NAME>free</NAME>
+    <ISON Count="1">true</ISON>
+    <ISINTERNET>true</ISINTERNET>
+    <MAXLINKCOUNT>100</MAXLINKCOUNT>
+    <PORTAL>portal.html</PORTAL>
+    <PATH>/ADUserFile/0/pub/0/</PATH>
+    <MAXFLOW>0</MAXFLOW>
+    <MAXUS>0</MAXUS>
+    <MAXDS>0</MAXDS>
+    <VONLINETIME>1800</VONLINETIME>
+    <VMAXDS>1024</VMAXDS>
+    <VMAXUS>512</VMAXUS>
+    <ISPWD>false</ISPWD>
+    <PWD></PWD>
+    <ACID>0</ACID>
+    <ADID>0</ADID>
+  </SSID>
+</Root>
+
+

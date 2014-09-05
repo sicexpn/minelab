@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>about</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--		<script type="text/javascript" src="js/ChilliLibrary-min.js">
+
+		</script>-->
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+      <script src="js/ChilliLibrary.js" type="text/javascript"></script>
+      <!--<script src="js/chilliController.js" type="text/javascript"></script>-->
+		<script type="text/javascript">
+
+			
+			var adtime = 15;
+			var ispreview = 0;
+			var favUrl = "/wiclickcms/index.php/Interact/dofav.html";
+			var voteUrl = "/wiclickcms/index.php/Interact/dovote.html";
+			var postcmtUrl = "/wiclickcms/index.php/Interact/postcomment.html";
+			var listcmtUrl = "/wiclickcms/index.php/Interact/listcomment.html";
+			var redirUrl = {
+				Android: "http://sina.cn/",
+				iOS: "http://sina.cn/",
+			};
+			var defurl = "http://m.baidu.com";
+			var cli_id = "cqy";
+			var cli_key = "cqy1";
+            /* chillicontroller init */
+			chilliController.host = "192.168.1.11";
+			chilliController.port = "1812";
+           function postdata()
+           {
+            $.post("login.chi", { username: cli_id, password: cli_key,userurl:'http://192.168.1.11' },
+               function(data){
+                 alert("Data Loaded: " + data);
+               });
+//window.location="login.chi?username="+cli_id+"&password="+cli_key+"&userurl=http://192.168.1.11"
+           }
+            
+		</script>
+  </head>
+  <body>
+    <div style="margin-top:20px" class="container">
+      <div  class="row">
+        <div class="col-md-12">
+        <div class="panel panel-default">
+        
+  <div class="panel-heading">
+  <!--WifiTempS name="文字1" type="txt" link="null"-->
+  欢迎使用 <button type="button" class="btn btn-primary btn-xs">万虔云志</button> 提供的 <button type="button" class="btn btn-danger btn-xs">萝卜</button> 系列wifi产品
+  <!--WifiTempE-->
+  </div>
+                  <p><!--WifiTempS name="图片1" type="pic" link="null" width="100%" height="auto" -->
+                  <img src="adtpic/a1.jpg" width="100%" height="auto"></p>
+                  <p><!--WifiTempE-->
+                  </p>
+          <p class="text-center">
+          
+          <!--<a class="btn btn-primary btn-lg" role="button" href="#" onclick="javascript:chilliController.logon(cli_id, cli_key);">-->
+          <a class="btn btn-primary btn-lg" role="button" href="#" onclick="postdata();">
+          <!--WifiTempS name="按钮文字1" type="text" link="null" width="100%" height="auto" -->
+          开始免费试用 Wi-Fi
+          <!--WifiTempE-->
+          </a></p>
+
+          <form name="form" method="post" action="login.chi"><INPUT TYPE="hidden" NAME="userurl" VALUE="http://logout/">
+<INPUT TYPE="hidden" NAME="username" VALUE="cqy"><INPUT TYPE="hidden" NAME="password" VALUE="cqy1" TYPE="password">
+    <input type="submit" name="button" value="开始免费试用 Wi-Fi"></form>
+
+</div>
+        </div>
+        </div>
+        </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+
+       <h5><p class="text-center">万虔云志科技有限公司</p></h5>
+
+</nav>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
